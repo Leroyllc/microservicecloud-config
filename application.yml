@@ -1,14 +1,14 @@
 spring:
-    profiles:
-        active:
-        - dev
-        
+ profiles:
+  active:
+   - dev
+---
 spring:
-    profiles: dev
-    application: 
-        name: microsoftservice-config-llc-dev
-
+ profiles: dev
+ application: 
+  name: microservice-config-llc-dev
+---
 spring:
-    profiles: test
-    application: 
-        name: microsoftservice-config-llc-test
+ profiles: test
+ application: 
+  name: microservice-config-llc-test
