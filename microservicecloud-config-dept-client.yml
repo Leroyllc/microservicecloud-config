@@ -1,0 +1,82 @@
+spring:
+ profiles:
+  active:
+  - dev
+---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml #mybatis配置文件所在路径
+  type-aliases-package: cn.llc.springcloud.entities              #所有Entities别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  profiles: dev
+  application:
+    name: microsoftcloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5 #数据库连接池的最小维持连接数
+      initial-size: 5 #初始化连接数
+      max-total: 5 #最大连接数
+      max-wait-millis: 200 #等待连接获取最大等待时间
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: 张三-8001
+    prefer-ip-address: true
+
+info:
+  app.name: 张三8001
+  company.name: www.baidu8001.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml #mybatis配置文件所在路径
+  type-aliases-package: cn.llc.springcloud.entities              #所有Entities别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  profiles: test
+  application:
+    name: microsoftcloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5 #数据库连接池的最小维持连接数
+      initial-size: 5 #初始化连接数
+      max-total: 5 #最大连接数
+      max-wait-millis: 200 #等待连接获取最大等待时间
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: 张三-8001
+    prefer-ip-address: true
+
+info:
+  app.name: 张三8001
+  company.name: www.baidu8001.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+
+
